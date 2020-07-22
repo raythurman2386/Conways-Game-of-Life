@@ -79,6 +79,8 @@ body {
 	line-height: 1.65;
 	background-color: var(--background);
 	color: var(--text-color);
+	position: relative;
+	min-height: 100vh;
 }
 
 header {
@@ -259,7 +261,7 @@ button.small {
 
 .layout {
 	/* Top padding is the header hight plus wanted visual padding and rythym */
-	padding: calc(3rem + var(--header-height)) var(--container-padding);
+	padding: calc(3rem + var(--header-height)) var(--container-padding) 12rem;
 }
 
 /* Generic defaults for grids and flex */
