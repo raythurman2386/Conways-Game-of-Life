@@ -1,0 +1,344 @@
+/*
+	Personal Base CSS Design system to utilize on future projects
+	Items and elements that are unneeded can be removed
+	Alter styles, typeface, colors and such on a per project basis
+
+	Mobile First setup
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400|Work+Sans:400');
+
+:root {
+	/* Define colors for the theme */
+	/* Change these on a project basis if needed */
+	--black: #111c2b;
+	--green: #03d0b1;
+	--red: #ff5470;
+	--yellow: #fde24f;
+	--dark-blue: #00214d;
+	--grey: #bfbfbf;
+	--dark-grey: #222;
+	--light-grey: #dcddde;
+	--white: #fff;
+
+	/* Define colors intentions */
+	--primary: var(--green);
+	--danger: var(--red);
+	--background: var(--light-grey);
+	--text-color: var(--black);
+	--button-text-color: var(--white);
+	--line-color: var(--grey);
+	--card-bg: var(--white);
+	--header-background: var(--dark-blue);
+	--footer-background: var(--black);
+
+	/* Styles */
+	--line: solid 1px var(--line-color);
+	--border-radius: 10px;
+
+	/* Elevation */
+	--level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+	/* Type */
+	--heading-font: 'Space Mono', monospace;
+	--body-font: 'Work Sans', sans-serif;
+	--base-font-size: 100%;
+	--h1: 3.052em;
+	--h2: 2.441em;
+	--h3: 1.953em;
+	--h4: 1.563em;
+	--h5: 1.25em;
+	--small-text: 0.8em;
+
+	/* Positioning */
+	--container-padding: 2.5%;
+	--header-height: 3rem;
+}
+
+html {
+	font-size: var(--base-font-size);
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* TypeScale Code for base Typography */
+body {
+	font-family: var(--body-font);
+	font-weight: 400;
+	line-height: 1.65;
+	background-color: var(--background);
+	color: var(--text-color);
+}
+
+header {
+	background-color: var(--header-background);
+	color: var(--white);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: var(--header-height);
+	box-shadow: var(--level-2);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 var(--container-padding);
+}
+
+header nav a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+header nav a + a {
+	margin-left: 10px;
+}
+
+footer {
+	--footer-text: var(--light-grey);
+	background-color: var(--footer-background);
+	color: var(--footer-text);
+	padding: 2rem var(--container-padding);
+	text-align: center;
+}
+
+footer a {
+	color: var(--footer-text);
+	text-decoration: none;
+}
+
+footer p {
+	margin-bottom: none;
+	max-width: none;
+}
+
+p {
+	margin-bottom: 1.15rem;
+	max-width: 40em;
+}
+
+p a,
+blockquote a {
+	color: var(--text-color);
+	text-decoration: none;
+	border-bottom: solid 2px var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 2.75rem 0 1.05rem;
+	font-family: var(--heading-font);
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: var(--h1);
+}
+
+h2 {
+	font-size: var(--h2);
+}
+
+h3 {
+	font-size: var(--h3);
+}
+
+h4 {
+	font-size: var(--h4);
+}
+
+h5 {
+	font-size: var(--h5);
+}
+
+small,
+.text_small {
+	font-size: var(--small-text);
+}
+/* End Typescale */
+
+blockquote {
+	margin: 10px;
+	border-radius: var(--border-radius);
+	padding: 2em;
+	background: var(--card-bg);
+	box-shadow: var(--level-3);
+}
+
+label {
+	display: block;
+	font-size: var(--small-text);
+}
+
+input,
+textarea {
+	padding: 4px 5px;
+	border: var(--line);
+	border-radius: var(--border-radius);
+}
+
+::placeholder {
+	color: var(--grey);
+}
+
+textarea {
+	width: 100%;
+	height: 5rem;
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: var(--line);
+	padding: 4px 5px;
+	border-radius: var(--border-radius);
+	min-width: 250px;
+}
+
+hr {
+	border-top: var(--line);
+}
+
+button {
+	--button-color: var(--primary);
+	cursor: pointer;
+	padding: 5px 25px;
+	margin-top: 5px;
+	appearance: none;
+	color: var(--button-text-color);
+	background-color: var(--button-color);
+	border: none;
+	border-radius: var(--border-radius);
+	box-shadow: var(--level-1);
+}
+
+button:hover {
+	box-shadow: var(--level-3);
+	transition: 0.3s ease-in-out box-shadow;
+}
+
+button[disabled] {
+	opacity: 0.4;
+}
+
+button.cancel {
+	--button-color: var(--danger);
+	--text-color: var(--white);
+}
+
+button.small {
+	font-size: var(--small-text);
+	padding: 3px 15px;
+}
+
+/* Classless styles initially complete */
+
+.layout {
+	/* Top padding is the header hight plus wanted visual padding and rythym */
+	padding: calc(3rem + var(--header-height)) var(--container-padding);
+}
+
+/* Generic defaults for grids and flex */
+/* Update grids per project */
+/* Below 400px these will be display block */
+/* sets grid and flex in media query */
+.grid {
+	--grid-cols: 2;
+	display: block;
+	grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.cols-3 {
+	--grid-cols: 3;
+}
+
+.flex {
+	--justify-content: space-between;
+	display: block;
+	justify-content: var(--justify-content);
+}
+
+.flex-around {
+	--justify-content: space-around;
+}
+
+.logo {
+	font-size: var(--base-font-size);
+	margin: 0;
+}
+
+.card {
+	padding: 2em;
+	background: var(--card-bg);
+	box-shadow: var(--level-3);
+	border-radius: var(--border-radius);
+}
+
+/* Makes sure first card item */
+/* will never have top margin */
+.card > *:first-child {
+	margin-top: 0;
+}
+
+/* Makes sure last card item */
+/* will never have bottom margin */
+.card > *:last-child {
+	margin-bottom: 0;
+}
+
+/* Barebones initial media queries */
+@media only screen and (min-width: 500px) {
+	:root {
+		--base-font-size: 112.5%;
+	} /*18px*/
+
+	.grid {
+		display: grid;
+	}
+
+	.flex {
+		display: flex;
+	}
+}
+
+/* Dark theme class */
+/* if added to body tag */
+/* instant dark mode */
+.dark {
+	--background: var(--black);
+	--text-color: var(--light-grey);
+	--header-background: var(--dark-grey);
+	--card-bg: var(--dark-grey);
+	--button-text-color: var(--black);
+	--footer-background: var(--dark-grey);
+	--line-color: var(--white);
+}
+
+/* Sets dark theme based on browser dark theme */
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--background: var(--black);
+		--text-color: var(--light-grey);
+		--header-background: var(--dark-grey);
+		--card-bg: var(--dark-grey);
+		--button-text-color: var(--black);
+		--footer-background: var(--dark-grey);
+	}
+} */
