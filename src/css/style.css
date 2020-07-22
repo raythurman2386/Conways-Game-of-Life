@@ -111,11 +111,18 @@ footer {
 	color: var(--footer-text);
 	padding: 2rem var(--container-padding);
 	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 footer a {
 	color: var(--footer-text);
 	text-decoration: none;
+}
+
+footer nav a + a {
+	margin-left: 10px;
 }
 
 footer p {

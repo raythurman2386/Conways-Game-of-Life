@@ -1,7 +1,12 @@
 import React from 'react';
+import { Layout } from './components';
 
 function App() {
-	return <div className='App'>Conway's Game of Life</div>;
+	return (
+		<Layout>
+			<div>Hello</div>
+		</Layout>
+	);
 }
 
 export default App;
