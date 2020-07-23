@@ -7,9 +7,9 @@ const Header = () => {
 			<header>
 				<h1 className='logo'>Conway's Game of Life</h1>
 				<nav>
-					<Link to='#'>Home</Link>
-					<Link to='#'>About</Link>
-					<Link to='#'>Play</Link>
+					<Link to='/'>Home</Link>
+					<Link to='/about'>About</Link>
+					<Link to='/game'>Play</Link>
 				</nav>
 			</header>
 		</>
