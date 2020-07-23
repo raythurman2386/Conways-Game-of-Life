@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from '../components';
+import patterns from '../assets/images/patterns.gif';
 
 const About = () => {
 	return (
@@ -159,9 +160,7 @@ const About = () => {
 			</section>
 			<section className='patterns'>
 				<h3>Patterns</h3>
-			</section>
-			<section className='variations'>
-				<h3>Variations</h3>
+				<img className='patterns' src={patterns} alt='Patterns' />
 			</section>
 			<p className='text_small'>
 				Content from{' '}
