@@ -9,6 +9,11 @@ const operations = [
 	[-1, 0],
 ];
 
-export function simulation() {
-	return;
-}
+export function simulation({
+	grid,
+	setGrid,
+	speed,
+	running,
+	numRows,
+	numCols,
+}: any) {}
