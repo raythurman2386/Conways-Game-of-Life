@@ -233,7 +233,7 @@ button {
 	--button-color: var(--primary);
 	cursor: pointer;
 	padding: 5px 25px;
-	margin-top: 5px;
+	margin: 5px 5px;
 	appearance: none;
 	color: var(--button-text-color);
 	background-color: var(--button-color);

@@ -25,6 +25,7 @@ const Grid = ({ grid, setGrid, numRows, numCols, running }: any) => {
 			style={{
 				display: 'grid',
 				gridTemplateColumns: `repeat(${numRows}, 20px)`,
+				justifyContent: 'center',
 			}}
 		>
 			{grid.map((rows: any, i: any) =>

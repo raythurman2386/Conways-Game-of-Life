@@ -14,8 +14,7 @@ const Game = () => {
 	}, [numRows]);
 
 	return (
-		<div>
-			<h1>Game Page</h1>
+		<div style={{ textAlign: 'center' }}>
 			{/* Buttons, With the amount of buttons, they will need to be a component */}
 			{/* TODO: We will need a Start button */}
 			<div className='controls'>
@@ -33,36 +32,38 @@ const Game = () => {
 					onClick={() => generateRandomGrid(numRows, numCols, setGrid)}
 				/>
 				{/* TODO: We will need a slider for speed */}
-				<div className='flex'>
-					<label htmlFor='speed'>Speed</label>
-					<input
-						type='range'
-						id='speed'
-						name='speed'
-						min='100'
-						max='1000'
-						value={speed}
-						onChange={(e) => setSpeed(Number(e.target.value))}
-					/>
-				</div>
+
+				<label htmlFor='speed'>Speed</label>
+				<input
+					type='range'
+					id='speed'
+					name='speed'
+					min='100'
+					max='1000'
+					value={speed}
+					onChange={(e) => setSpeed(Number(e.target.value))}
+				/>
+
 				{/* TODO: We will need a slider for grid size */}
-				<div className='flex'>
-					<label htmlFor='size'>Size</label>
-					<input
-						type='range'
-						id='size'
-						name='size'
-						min='25'
-						max='80'
-						value={numRows}
-						onChange={(e) => {
-							setRows(Number(e.target.value));
-							setCols(Number(e.target.value));
-						}}
-					/>
-				</div>
+
+				<label htmlFor='size'>Size</label>
+				<input
+					type='range'
+					id='size'
+					name='size'
+					min='25'
+					max='80'
+					value={numRows}
+					onChange={(e) => {
+						setRows(Number(e.target.value));
+						setCols(Number(e.target.value));
+					}}
+				/>
+
 				{/* TODO: We will need a dropdown for presets */}
-			</div>
+			</div>{' '}
+			{/* End of controls */}
+			{/* TODO: Break controls into component */}
 			{/* Grid Component */}
 			<Grid
 				grid={grid}
