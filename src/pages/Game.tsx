@@ -99,13 +99,14 @@ const Game = () => {
 				{/* TODO: We will need a dropdown for presets */}
 				<label htmlFor='presets'>Preset Designs</label>
 				<select name='presets' id='presets'>
-					<option value=''>Please Choose an Preset</option>
+					<option value=''>Please Choose a Preset</option>
 					<option value='#'>Preset 1</option>
 					<option value='#'>Preset 2</option>
 					<option value='#'>Preset 3</option>
 					<option value='#'>Preset 4</option>
 				</select>
 			</div>{' '}
+			<p className='text_small'>Presets default to 25x25</p>
 			{/* End of controls */}
 			{/* TODO: Break controls into component */}
 			{/* Grid Component */}
