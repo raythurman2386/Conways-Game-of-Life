@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Grid = ({ grid, setGrid, numRows, numCols, running }: any) => {
+const Grid = ({ grid, setGrid, numRows, running }: any) => {
 	// Handles changing the color of the square in an immutable fashion
 	const handleClick = (x: number, y: number) => {
 		const newGrid = grid.map((row: any, key: any) => {
@@ -28,8 +28,8 @@ const Grid = ({ grid, setGrid, numRows, numCols, running }: any) => {
 				justifyContent: 'center',
 			}}
 		>
-			{grid.map((rows: any, i: any) =>
-				rows.map((col: any, j: any) => (
+			{grid.map((rows: [], i: number) =>
+				rows.map((col: [], j: number) => (
 					<div
 						key={`${i}-${j}`}
 						onClick={() => (!running ? handleClick(i, j) : undefined)}
