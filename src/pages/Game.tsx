@@ -17,38 +17,22 @@ const Game = () => {
 	const runningRef = useRef(running);
 	runningRef.current = running;
 
-	// const runSim = () => {
-	// 	if (!runningRef.current) {
-	// 		return;
-	// 	}
-
-	// 	let newGrid = simulation(grid, numRows, numCols);
-	// 	setGrid(newGrid);
-
-	// 	setTimeout(runSim, speed);
-	// };
 	const runSim = () => {
 		if (!runningRef.current) {
 			return;
 		}
 
-		const operations = [
-			[0, 1],
-			[0, -1],
-			[1, -1],
-			[-1, 1],
-			[1, 1],
-			[-1, -1],
-			[1, 0],
-			[-1, 0],
-		];
-
-		setGrid((g) => {
-			return produce(g, (gridCopy) => {
-				simulation(g, gridCopy, numRows, numCols);
+		setGrid((grid) => {
+			// Produce takes the current grid, and returns a newGrid+
+			// returns a newGrid without altering the old grid
+			// makes deep state updates easy
+			return produce(grid, (newGrid) => {
+				simulation(grid, newGrid, numRows, numCols);
 			});
 		});
 
+		// Runs the sim using recursion
+		// uses the current speed that from state
 		setTimeout(runSim, speed);
 	};
 
@@ -92,6 +76,7 @@ const Game = () => {
 					step='100'
 					value={speed}
 					onChange={(e) => setSpeed(Number(e.target.value))}
+					disabled={running ? true : false}
 				/>
 
 				{/* TODO: We will need a slider for grid size */}
@@ -108,6 +93,7 @@ const Game = () => {
 						setRows(Number(e.target.value));
 						setCols(Number(e.target.value));
 					}}
+					disabled={running ? true : false}
 				/>
 
 				{/* TODO: We will need a dropdown for presets */}
