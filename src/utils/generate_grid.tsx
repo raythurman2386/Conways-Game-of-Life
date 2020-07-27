@@ -1,4 +1,4 @@
-export function generateGrid(numRows = 25, numCols = 25): number[][] {
+export function generateGrid(numRows: number, numCols: number): number[][] {
 	const rows: number[][] = [];
 	for (let i = 0; i < numRows; i++) {
 		rows.push(Array.from(Array(numCols), () => 0));
@@ -7,7 +7,11 @@ export function generateGrid(numRows = 25, numCols = 25): number[][] {
 	return rows;
 }
 
-export function generateRandomGrid(numRows = 25, numCols = 25, setGrid: any) {
+export function generateRandomGrid(
+	numRows: number,
+	numCols: number,
+	setGrid: any
+): void {
 	const rows: number[][] = [];
 	for (let i = 0; i < numRows; i++) {
 		rows.push(Array.from(Array(numCols), () => (Math.random() > 0.7 ? 1 : 0)));
