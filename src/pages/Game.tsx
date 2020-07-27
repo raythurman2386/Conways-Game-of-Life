@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { generateGrid, generateRandomGrid } from '../utils';
+import React, { useState, useEffect, useRef } from 'react';
+import produce from 'immer';
+import { generateGrid, generateRandomGrid, simulation } from '../utils';
 import { Grid, Button } from '../components';
 
 const Game = () => {
@@ -13,6 +14,44 @@ const Game = () => {
 		setGrid(generateGrid(numRows, numCols));
 	}, [numRows]);
 
+	const runningRef = useRef(running);
+	runningRef.current = running;
+
+	// const runSim = () => {
+	// 	if (!runningRef.current) {
+	// 		return;
+	// 	}
+
+	// 	let newGrid = simulation(grid, numRows, numCols);
+	// 	setGrid(newGrid);
+
+	// 	setTimeout(runSim, speed);
+	// };
+	const runSim = () => {
+		if (!runningRef.current) {
+			return;
+		}
+
+		const operations = [
+			[0, 1],
+			[0, -1],
+			[1, -1],
+			[-1, 1],
+			[1, 1],
+			[-1, -1],
+			[1, 0],
+			[-1, 0],
+		];
+
+		setGrid((g) => {
+			return produce(g, (gridCopy) => {
+				simulation(g, gridCopy, numRows, numCols);
+			});
+		});
+
+		setTimeout(runSim, speed);
+	};
+
 	return (
 		<div style={{ textAlign: 'center' }}>
 			{/* Buttons, With the amount of buttons, they will need to be a component */}
@@ -20,7 +59,13 @@ const Game = () => {
 			<div className='controls' style={{ marginBottom: '10px' }}>
 				<Button
 					title={!running ? 'Start' : 'Stop'}
-					onClick={() => setRunning(!running)}
+					onClick={() => {
+						setRunning(!running);
+						if (!running) {
+							runningRef.current = true;
+							runSim();
+						}
+					}}
 				/>
 
 				{/* TODO: We will need a Clear Button */}
