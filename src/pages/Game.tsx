@@ -18,15 +18,16 @@ const Game = () => {
 			{/* Buttons, With the amount of buttons, they will need to be a component */}
 			{/* TODO: We will need a Start button */}
 			<div className='controls' style={{ marginBottom: '10px' }}>
-				<Button title='Start' onClick={() => setRunning(true)} />
-
-				{/* TODO: We will need a Stop Button */}
-				<Button title='Stop' onClick={() => setRunning(false)} />
+				<Button
+					title={!running ? 'Start' : 'Stop'}
+					onClick={() => setRunning(!running)}
+				/>
 
 				{/* TODO: We will need a Clear Button */}
 				<Button
 					title='Clear'
 					onClick={() => setGrid(generateGrid(numRows, numCols))}
+					disabled={running ? true : false}
 				/>
 
 				{/* TODO: We will need a Random Button */}
@@ -43,6 +44,7 @@ const Game = () => {
 					name='speed'
 					min='100'
 					max='1000'
+					step='100'
 					value={speed}
 					onChange={(e) => setSpeed(Number(e.target.value))}
 				/>
@@ -56,6 +58,7 @@ const Game = () => {
 					min='25'
 					max='80'
 					value={numRows}
+					step='5'
 					onChange={(e) => {
 						setRows(Number(e.target.value));
 						setCols(Number(e.target.value));
