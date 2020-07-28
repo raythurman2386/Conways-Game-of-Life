@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import produce from 'immer';
 import { generateGrid, generateRandomGrid, simulation } from '../utils';
 import { Grid, Button } from '../components';
-import { glider, pulsar } from '../presets';
+import { glider, pulsar, gliderGun } from '../presets';
 
 const Game = () => {
 	const [numRows, setRows] = useState(25);
@@ -40,6 +40,10 @@ const Game = () => {
 	const handleSelectChange = (e: any) => {
 		if (e.target.value === 'pulsar') {
 			setGrid(pulsar);
+		} else if (e.target.value === 'glider-gun') {
+			setGrid(gliderGun);
+		} else if (e.target.value === 'glider') {
+			setGrid(glider);
 		}
 	};
 
@@ -111,9 +115,9 @@ const Game = () => {
 					onChange={(e: any) => handleSelectChange(e)}
 				>
 					<option value=''>Please Choose a Preset</option>
+					<option value='glider'>Glider</option>
 					<option value='pulsar'>Pulsar</option>
-					<option value='#'>Preset 2</option>
-					<option value='#'>Preset 3</option>
+					<option value='glider-gun'>Glider Gun</option>
 					<option value='#'>Preset 4</option>
 				</select>
 			</div>{' '}
