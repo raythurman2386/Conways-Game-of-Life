@@ -13,7 +13,7 @@ const Game = () => {
 
 	useEffect(() => {
 		setGrid(generateGrid(numRows, numCols));
-	}, [numRows]);
+	}, [numRows, numCols]);
 
 	const runningRef = useRef(running);
 	runningRef.current = running;
