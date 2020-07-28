@@ -1,3 +1,4 @@
 import { glider } from './glider';
+import { pulsar } from './pulsar';
 
-export { glider };
+export { glider, pulsar };

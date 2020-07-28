@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import produce from 'immer';
 import { generateGrid, generateRandomGrid, simulation } from '../utils';
 import { Grid, Button } from '../components';
+import { glider, pulsar } from '../presets';
 
 const Game = () => {
 	const [numRows, setRows] = useState(25);
@@ -34,6 +35,12 @@ const Game = () => {
 		// Runs the sim using recursion
 		// uses the current speed that from state
 		setTimeout(runSim, speed);
+	};
+
+	const handleSelectChange = (e: any) => {
+		if (e.target.value === 'pulsar') {
+			setGrid(pulsar);
+		}
 	};
 
 	return (
@@ -98,9 +105,13 @@ const Game = () => {
 
 				{/* TODO: We will need a dropdown for presets */}
 				<label htmlFor='presets'>Preset Designs</label>
-				<select name='presets' id='presets'>
+				<select
+					name='presets'
+					id='presets'
+					onChange={(e: any) => handleSelectChange(e)}
+				>
 					<option value=''>Please Choose a Preset</option>
-					<option value='#'>Preset 1</option>
+					<option value='pulsar'>Pulsar</option>
 					<option value='#'>Preset 2</option>
 					<option value='#'>Preset 3</option>
 					<option value='#'>Preset 4</option>
