@@ -39,11 +39,19 @@ const Game = () => {
 
 	const handleSelectChange = (e: any) => {
 		if (e.target.value === 'pulsar') {
+			setRows(25);
+			setCols(25);
 			setGrid(pulsar);
 		} else if (e.target.value === 'glider-gun') {
+			setRows(25);
+			setCols(25);
 			setGrid(gliderGun);
 		} else if (e.target.value === 'glider') {
+			setRows(25);
+			setCols(25);
 			setGrid(glider);
+		} else {
+			setGrid(generateGrid(numRows, numCols));
 		}
 	};
 
