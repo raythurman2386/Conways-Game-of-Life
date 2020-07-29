@@ -1,4 +1,4 @@
 import { simulation } from './algorithm';
-import { generateGrid, generateRandomGrid } from './generate_grid';
+import { generateGrid, generateRandomGrid, setGridSize } from './generate_grid';
 
-export { simulation, generateGrid, generateRandomGrid };
+export { simulation, generateGrid, generateRandomGrid, setGridSize };

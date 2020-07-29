@@ -19,3 +19,8 @@ export function generateRandomGrid(
 
 	setGrid(rows);
 }
+
+export function setGridSize(setRows: any, setCols: any, size: number) {
+	setRows(size);
+	setCols(size);
+}

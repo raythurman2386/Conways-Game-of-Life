@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import produce from 'immer';
-import { generateGrid, generateRandomGrid, simulation } from '../utils';
+import {
+	generateGrid,
+	generateRandomGrid,
+	simulation,
+	setGridSize,
+} from '../utils';
 import { Grid, Button } from '../components';
 import { glider, pulsar, gliderGun } from '../presets';
 
@@ -38,20 +43,22 @@ const Game = () => {
 	};
 
 	const handleSelectChange = (e: any) => {
-		if (e.target.value === 'pulsar') {
-			setRows(25);
-			setCols(25);
-			setGrid(pulsar);
-		} else if (e.target.value === 'glider-gun') {
-			setRows(25);
-			setCols(25);
-			setGrid(gliderGun);
-		} else if (e.target.value === 'glider') {
-			setRows(25);
-			setCols(25);
-			setGrid(glider);
-		} else {
-			setGrid(generateGrid(numRows, numCols));
+		switch (e.target.value) {
+			case 'glider':
+				setGridSize(setRows, setCols, 25);
+				setGrid(glider);
+				break;
+			case 'pulsar':
+				setGridSize(setRows, setCols, 25);
+				setGrid(pulsar);
+				break;
+			case 'glider-gun':
+				setGridSize(setRows, setCols, 25);
+				setGrid(gliderGun);
+				break;
+			default:
+				setGrid(generateGrid(numRows, numCols));
+				break;
 		}
 	};
 
