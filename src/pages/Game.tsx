@@ -53,7 +53,7 @@ const Game = () => {
 				setGrid(pulsar);
 				break;
 			case 'glider-gun':
-				setGridSize(setRows, setCols, 25);
+				setGridSize(setRows, setCols, 40)
 				setGrid(gliderGun);
 				break;
 			default:
@@ -136,7 +136,8 @@ const Game = () => {
 					<option value='#'>Preset 4</option>
 				</select>
 			</div>{' '}
-			<p className='text_small'>Presets default to 25x25</p>
+			<p className='text_small'>Must set grid to 40x40 for Glider gun to work</p>
+			<p className='text_small'>Most presets default to 25x25</p>
 			{/* End of controls */}
 			{/* TODO: Break controls into component */}
 			{/* Grid Component */}
