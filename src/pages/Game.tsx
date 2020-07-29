@@ -7,7 +7,7 @@ import {
 	setGridSize,
 } from '../utils';
 import { Grid, Button } from '../components';
-import { glider, pulsar, gliderGun } from '../presets';
+import { glider, prePulsar, pulsar, gliderGun } from '../presets';
 
 const Game = () => {
 	const [numRows, setRows] = useState(25);
@@ -48,12 +48,16 @@ const Game = () => {
 				setGridSize(setRows, setCols, 25);
 				setGrid(glider);
 				break;
+			case 'cross':
+				setGridSize(setRows, setCols, 25);
+				setGrid(prePulsar);
+				break;
 			case 'pulsar':
 				setGridSize(setRows, setCols, 25);
 				setGrid(pulsar);
 				break;
 			case 'glider-gun':
-				setGridSize(setRows, setCols, 40)
+				setGridSize(setRows, setCols, 40);
 				setGrid(gliderGun);
 				break;
 			default:
@@ -131,13 +135,15 @@ const Game = () => {
 				>
 					<option value=''>Please Choose a Preset</option>
 					<option value='glider'>Glider</option>
+					<option value='cross'>Pre Pulsar</option>
 					<option value='pulsar'>Pulsar</option>
 					<option value='glider-gun'>Glider Gun</option>
-					<option value='#'>Preset 4</option>
 				</select>
 			</div>{' '}
-			<p className='text_small'>Must set grid to 40x40 for Glider gun to work</p>
-			<p className='text_small'>Most presets default to 25x25</p>
+			<p className='text_small'>
+				Must set grid to 40x40 for Glider gun to work
+			</p>
+			<p className='text_small'>Set others to 25x25</p>
 			{/* End of controls */}
 			{/* TODO: Break controls into component */}
 			{/* Grid Component */}
