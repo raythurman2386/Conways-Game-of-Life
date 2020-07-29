@@ -231,6 +231,7 @@ hr {
 
 button {
 	--button-color: var(--primary);
+	z-index: -1;
 	cursor: pointer;
 	padding: 5px 25px;
 	margin: 5px 5px;
@@ -247,9 +248,9 @@ button:hover {
 	transition: 0.3s ease-in-out box-shadow;
 }
 
-button[disabled] {
+/* button[disabled] {
 	opacity: 0.4;
-}
+} */
 
 button.cancel {
 	--button-color: var(--danger);

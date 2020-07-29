@@ -48,7 +48,7 @@ const Game = () => {
 				setGridSize(setRows, setCols, 25);
 				setGrid(glider);
 				break;
-			case 'cross':
+			case 'pre-pulsar':
 				setGridSize(setRows, setCols, 25);
 				setGrid(prePulsar);
 				break;
@@ -135,7 +135,7 @@ const Game = () => {
 				>
 					<option value=''>Please Choose a Preset</option>
 					<option value='glider'>Glider</option>
-					<option value='cross'>Pre Pulsar</option>
+					<option value='pre-pulsar'>Pre Pulsar</option>
 					<option value='pulsar'>Pulsar</option>
 					<option value='glider-gun'>Glider Gun</option>
 				</select>
