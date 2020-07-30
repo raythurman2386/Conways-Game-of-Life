@@ -15,6 +15,7 @@ const Game = () => {
 	const [speed, setSpeed] = useState(300);
 	const [grid, setGrid] = useState(() => generateGrid(numRows, numCols));
 	const [running, setRunning] = useState(false);
+	let [generation, setGeneration] = useState(0);
 
 	useEffect(() => {
 		setGrid(generateGrid(numRows, numCols));
@@ -39,6 +40,8 @@ const Game = () => {
 
 		// Runs the sim using recursion
 		// uses the current speed that from state
+		// Updates the generation number on each run
+		setGeneration((generation += 1));
 		setTimeout(runSim, speed);
 	};
 
@@ -85,7 +88,10 @@ const Game = () => {
 				{/* TODO: We will need a Clear Button */}
 				<Button
 					title='Clear'
-					onClick={() => setGrid(generateGrid(numRows, numCols))}
+					onClick={() => {
+						setGrid(generateGrid(numRows, numCols));
+						setGeneration(0);
+					}}
 					disabled={running ? true : false}
 				/>
 
@@ -146,6 +152,8 @@ const Game = () => {
 			<p className='text_small'>Set others to 25x25</p>
 			{/* End of controls */}
 			{/* TODO: Break controls into component */}
+			{/* Generation Round */}
+			<p>Generation: {generation}</p>
 			{/* Grid Component */}
 			<Grid
 				grid={grid}
