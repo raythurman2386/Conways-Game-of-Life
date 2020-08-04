@@ -28,19 +28,33 @@ const Home = () => {
 				<ul>
 					<li>
 						Wikipedia -{' '}
-						<a href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'>
+						<a
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life'
+						>
 							Conway's Game of Life
 						</a>
 					</li>
 					<li>
 						My Github Repo -{' '}
-						<a href='https://github.com/raythurman2386/Conways-game-of-life'>
+						<a
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://github.com/raythurman2386/Conways-game-of-life'
+						>
 							Located here
 						</a>
 					</li>
 					<li>
 						Other Variation -{' '}
-						<a href='https://playgameoflife.com/'>Play Game of Life</a>
+						<a
+							target='_blank'
+							rel='noopener noreferrer'
+							href='https://playgameoflife.com/'
+						>
+							Play Game of Life
+						</a>
 					</li>
 				</ul>
 			</section>
